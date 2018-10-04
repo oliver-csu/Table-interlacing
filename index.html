@@ -2,30 +2,28 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>表格隔行换色</title>
+		<title>使用jQuery完成表格隔行换色</title>
+		<link rel="stylesheet" href="css/style.css" />
+		<script type="text/javascript" src="js/jquery-1.8.3.js" ></script>
 		<script>
-			window.onload = function(){
-				//1.获取表格
-				var tblEle = document.getElementById("tbl");
-				//2.获取表格中tbody里面的行数(长度)
-				var len = tblEle.tBodies[0].rows.length;
-				//alert(len);
-				//3.对tbody里面的行进行遍历
-				for(var i=0;i<len;i++){
-					if(i%2==0){
-						//4.对偶数行设置背景颜色
-						tblEle.tBodies[0].rows[i].style.backgroundColor="pink";
-					}else{
-						//5.对奇数行设置背景颜色
-						tblEle.tBodies[0].rows[i].style.backgroundColor="gold";
-					}
-				}
-			}
+			//1.页面加载
+			$(function(){
+				/*//2.获取tbody下面的偶数行并设置背景颜色
+				$("tbody tr:even").css("background-color","yellow");
+				//3.获取tbody下面的奇数行并设置背景颜色
+				$("tbody tr:odd").css("background-color","green");*/
+				
+				//2.获取tbody下面的偶数行并设置背景颜色
+				$("tbody tr:even").addClass("even");
+				//$("tbody tr:even").removeClass("even");
+				//3.获取tbody下面的奇数行并设置背景颜色
+				$("tbody tr:odd").addClass("odd");
+			});
 		</script>
-
+		
 	</head>
 	<body>
-		<table border="1" width="500" height="50" align="center" id="tbl">
+		<table border="1" width="500" height="50" align="center" id="tbl" id="tbl">
 			<thead>
 				<tr>
 					<th>编号</th>
